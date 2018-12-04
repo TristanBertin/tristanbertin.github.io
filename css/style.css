@@ -648,7 +648,7 @@ h1, h2, h3, h4, h5, h6, figure {
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
-  background-image: srx("index_img/GP.png");
+  background-image: url(index_img/GP.png);
   background-size: cover;
 
 }
