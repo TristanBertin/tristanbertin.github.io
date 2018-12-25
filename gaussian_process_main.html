@@ -19,8 +19,6 @@
 
 	</head>
 	<body>
-		
-	<div class="fh5co-loader"></div>
 	
 	<div id="page">
 	<nav class="fh5co-nav" role="navigation">
@@ -35,43 +33,253 @@
 	</nav>
 
 
-	<div id="fh5co-about">
-		<div class="container">
-				<div class="row row-pb-md">
-					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-						<span>Bayesian models</span>
-						<h2>The intuition behind Gaussian processes</h2>
-						<p> The final reference to deeply understand the basic concepts of Gaussian Processes from scratch</p>
-					</div>
-				</div>
-				<div class="row row-pb-md animate-box">
-					<div class="col-md-6 col-md-push-6">
-
-						<div class="desc">
-							<h3>Introduction</h3>
-							<p>Gaussian Process is a powerful trick that is really easy to set up but quite hard to well understand. This article has been written in order to explain the mathematics as well as the intuition that are hidden behind this very popular method. </p>
-							<p>We’ll consider the case of the Regression, we are therefore looking to find a relation behind some input X and the output Y. Let’s remind us how a Linear Regression deal with these kind of problems : if we assume  that
-								<a href="https://www.codecogs.com/eqnedit.php?latex=y=f(x)&plus;\varepsilon" target="_blank"><img src="https://latex.codecogs.com/gif.latex?y=f(x)&plus;\varepsilon" title="y=f(x)+\varepsilon" /></a>
-								where epsilon is the noise, we try to find the best theta  et theta such that : <a href="https://www.codecogs.com/eqnedit.php?latex=f(x)&space;=&space;\Theta_0&space;&plus;&space;\Theta_1X" target="_blank">
-									 <a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;\dpi{120}&space;\fn_cm&space;\large&space;f(x)&space;=&space;\Theta_0&space;&plus;&space;\Theta_1X" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{120}&space;\fn_cm&space;\large&space;f(x)&space;=&space;\Theta_0&space;&plus;&space;\Theta_1X" title="\large f(x) = \Theta_0 + \Theta_1X" /></a></p>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quo est quis mollitia ratione magni assumenda repellat atque modi temporibus tempore ex. Dolore facilis ex sunt ea praesentium expedita numquam?</p>
-
+		<div id="fh5co-about">
+			<div class="container">
+					<div class="row row-pb-md">
+						<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+							<span>Bayesian models</span>
+							<h2>The intuition behind Gaussian processes</h2>
+							<p> The final reference to deeply understand the basic concepts of Gaussian Processes from scratch</p>
 						</div>
 					</div>
-					<div class="col-md-6 col-md-pull-6">
-						<img class="img-responsive" src="images/gaussian_process/distrib11.png" alt="about">
+
+			
+			<h4>Gaussian Process is a powerful trick that is really easy to set up but quite hard to well understand. This article has been written in order to explain the mathematics as well as the intuition that are hidden behind this very popular method. </h4>
+
+
+
+
+			<div class="row animate-box row-pb-md">
+			<p> First, it's important to note that if we use a Gaussian Process, it means that we assume that the data we have satisfy <img src="https://latex.codecogs.com/gif.latex?y=f(x)&plus;\varepsilon" title="y=f(x)+\varepsilon" />.</p>
+				<button class="collapsible">Why do we assume that : <img src="https://latex.codecogs.com/gif.latex?y=f(x)&plus;\varepsilon" title="y=f(x)+\varepsilon" /> ? </button>
+				<div class="content">
+					<div class="container-perso">
+  						<div class="image-perso">
+   							<img src="images/gaussian_process/linear_regression.png" alt="about"> 
+  						</div>
+  						<div class="text-perso">
+   							<p>We’ll consider the case of the Regression, we are therefore looking to find a relation behind some input X and the output Y. Let’s remind us how a Linear Regression deal with these kind of problems : if we assume  that
+						<img src="https://latex.codecogs.com/gif.latex?y=f(x)&plus;\varepsilon" title="y=f(x)+\varepsilon" /></a>
+							here epsilon is the noise, we try to find the best theta  et theta such that : 
+							<img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{120}&space;\fn_cm&space;\large&space;f(x)&space;=&space;\Theta_0&space;&plus;&space;\Theta_1X" title="\large f(x) = \Theta_0 + \Theta_1X" /></a></p>
+							<p>We’ll consider the case of the Regression, we are therefore looking to find a relation behind some input X and the output Y. Let’s remind us how a Linear Regression deal with these kind of problems : if we assume  that
+ 						 </div>
+					</div>
+												<p>We’ll consider the case of the Regression, we are therefore looking to find a relation behind some input X and the output Y. Let’s remind us how a Linear Regression deal with these kind of problems : if we assume  that
+							<p>We’ll consider the case of the Regression, we are therefore looking to find a relation behind some input X and the output Y. Let’s remind us how a Linear Regression deal with these kind of problems : if we assume  that
+				</div>
+				</div>
+
+
+				<div class="row animate-box row-pb-md">
+					<p> Now we have our data, we're going to use the full power of non parametric methods to fit the best possible way the data</p>
+						<button class="collapsible">Why do we need non-parametric methods ?</button>
+						<div class="content">
+							<div class="container-perso">
+		  						<div class="image-perso">
+		   							<img src="images/gaussian_process/linear_regression.png" alt="about"> 
+		  						</div>
+		  						<div class="text-perso">
+		   							<p>We’ll consider the case of the Regression, we are therefore looking to find a relation behind some input X and the output Y. Let’s remind us how a Linear Regression deal with these kind of problems : if we assume  that
+								<img src="https://latex.codecogs.com/gif.latex?y=f(x)&plus;\varepsilon" title="y=f(x)+\varepsilon" /></a>
+									here epsilon is the noise, we try to find the best theta  et theta such that : 
+									<img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{120}&space;\fn_cm&space;\large&space;f(x)&space;=&space;\Theta_0&space;&plus;&space;\Theta_1X" title="\large f(x) = \Theta_0 + \Theta_1X" /></a></p>
+									<p>We’ll consider the case of the Regression, we are therefore looking to find a relation behind some input X and the output Y. Let’s remind us how a Linear Regression deal with these kind of problems : if we assume  that
+		 						 </div>
+							</div>
+														<p>We’ll consider the case of the Regression, we are therefore looking to find a relation behind some input X and the output Y. Let’s remind us how a Linear Regression deal with these kind of problems : if we assume  that
+									<p>We’ll consider the case of the Regression, we are therefore looking to find a relation behind some input X and the output Y. Let’s remind us how a Linear Regression deal with these kind of problems : if we assume  that
+				</div>
+				</div>
+
+
+
+				<div class="row animate-box row-pb-md">
+					<p> Because we're also interested in uncertainty, we will use Bayesian models</p>
+						<button class="collapsible">What are Bayesian Methods ? </button>
+						<div class="content">
+							<div class="container-perso">
+		  						<div class="image-perso">
+		   							<img src="images/gaussian_process/linear_regression.png" alt="about"> 
+		  						</div>
+		  						<div class="text-perso">
+		   							<p>We’ll consider the case of the Regression, we are therefore looking to find a relation behind some input X and the output Y. Let’s remind us how a Linear Regression deal with these kind of problems : if we assume  that
+								<img src="https://latex.codecogs.com/gif.latex?y=f(x)&plus;\varepsilon" title="y=f(x)+\varepsilon" /></a>
+									here epsilon is the noise, we try to find the best theta  et theta such that : 
+									<img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{120}&space;\fn_cm&space;\large&space;f(x)&space;=&space;\Theta_0&space;&plus;&space;\Theta_1X" title="\large f(x) = \Theta_0 + \Theta_1X" /></a></p>
+									<p>We’ll consider the case of the Regression, we are therefore looking to find a relation behind some input X and the output Y. Let’s remind us how a Linear Regression deal with these kind of problems : if we assume  that
+		 						 </div>
+							</div>
+														<p>We’ll consider the case of the Regression, we are therefore looking to find a relation behind some input X and the output Y. Let’s remind us how a Linear Regression deal with these kind of problems : if we assume  that
+									<p>We’ll consider the case of the Regression, we are therefore looking to find a relation behind some input X and the output Y. Let’s remind us how a Linear Regression deal with these kind of problems : if we assume  that
+				</div>
+				</div>
+
+				<div class="row animate-box row-pb-md">
+					<p> The gaussian distribution is really orten use, that's why we can ask ourselves...</p>
+						<button class="collapsible"> Why do we need Gaussian densities ?  </button>
+						<div class="content">
+							<div class="container-perso">
+		  						<div class="image-perso">
+		   							<img src="images/gaussian_process/linear_regression.png" alt="about"> 
+		  						</div>
+		  						<div class="text-perso">
+		   							<p>We’ll consider the case of the Regression, we are therefore looking to find a relation behind some input X and the output Y. Let’s remind us how a Linear Regression deal with these kind of problems : if we assume  that
+								<img src="https://latex.codecogs.com/gif.latex?y=f(x)&plus;\varepsilon" title="y=f(x)+\varepsilon" /></a>
+									here epsilon is the noise, we try to find the best theta  et theta such that : 
+									<img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{120}&space;\fn_cm&space;\large&space;f(x)&space;=&space;\Theta_0&space;&plus;&space;\Theta_1X" title="\large f(x) = \Theta_0 + \Theta_1X" /></a></p>
+									<p>We’ll consider the case of the Regression, we are therefore looking to find a relation behind some input X and the output Y. Let’s remind us how a Linear Regression deal with these kind of problems : if we assume  that
+		 						 </div>
+							</div>
+														<p>We’ll consider the case of the Regression, we are therefore looking to find a relation behind some input X and the output Y. Let’s remind us how a Linear Regression deal with these kind of problems : if we assume  that
+									<p>We’ll consider the case of the Regression, we are therefore looking to find a relation behind some input X and the output Y. Let’s remind us how a Linear Regression deal with these kind of problems : if we assume  that
+				</div>
+				</div>
+
+				<div class="row animate-box row-pb-md">
+					<p> For what comes after, we do need a kernel, but...</p>
+						<button class="collapsible">What is a kernel ? </button>
+						<div class="content">
+							<div class="container-perso">
+		  						<div class="image-perso">
+		   							<img src="images/gaussian_process/linear_regression.png" alt="about"> 
+		  						</div>
+		  						<div class="text-perso">
+		   							<p>We’ll consider the case of the Regression, we are therefore looking to find a relation behind some input X and the output Y. Let’s remind us how a Linear Regression deal with these kind of problems : if we assume  that
+								<img src="https://latex.codecogs.com/gif.latex?y=f(x)&plus;\varepsilon" title="y=f(x)+\varepsilon" /></a>
+									here epsilon is the noise, we try to find the best theta  et theta such that : 
+									<img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{120}&space;\fn_cm&space;\large&space;f(x)&space;=&space;\Theta_0&space;&plus;&space;\Theta_1X" title="\large f(x) = \Theta_0 + \Theta_1X" /></a></p>
+									<p>We’ll consider the case of the Regression, we are therefore looking to find a relation behind some input X and the output Y. Let’s remind us how a Linear Regression deal with these kind of problems : if we assume  that
+		 						 </div>
+							</div>
+														<p>We’ll consider the case of the Regression, we are therefore looking to find a relation behind some input X and the output Y. Let’s remind us how a Linear Regression deal with these kind of problems : if we assume  that
+									<p>We’ll consider the case of the Regression, we are therefore looking to find a relation behind some input X and the output Y. Let’s remind us how a Linear Regression deal with these kind of problems : if we assume  that
+				</div>
+				</div>
+
+				<div class="row animate-box row-pb-md">
+					<p> To have an accurate regression, we first have to train our model </p>
+						<button class="collapsible"> How and why do we train a Gaussian Process ?   </button>
+						<div class="content">
+							<div class="container-perso">
+		  						<div class="image-perso">
+		   							<img src="images/gaussian_process/linear_regression.png" alt="about"> 
+		  						</div>
+		  						<div class="text-perso">
+		   							<p>We’ll consider the case of the Regression, we are therefore looking to find a relation behind some input X and the output Y. Let’s remind us how a Linear Regression deal with these kind of problems : if we assume  that
+								<img src="https://latex.codecogs.com/gif.latex?y=f(x)&plus;\varepsilon" title="y=f(x)+\varepsilon" /></a>
+									here epsilon is the noise, we try to find the best theta  et theta such that : 
+									<img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{120}&space;\fn_cm&space;\large&space;f(x)&space;=&space;\Theta_0&space;&plus;&space;\Theta_1X" title="\large f(x) = \Theta_0 + \Theta_1X" /></a></p>
+									<p>We’ll consider the case of the Regression, we are therefore looking to find a relation behind some input X and the output Y. Let’s remind us how a Linear Regression deal with these kind of problems : if we assume  that
+		 						 </div>
+							</div>
+														<p>We’ll consider the case of the Regression, we are therefore looking to find a relation behind some input X and the output Y. Let’s remind us how a Linear Regression deal with these kind of problems : if we assume  that
+									<p>We’ll consider the case of the Regression, we are therefore looking to find a relation behind some input X and the output Y. Let’s remind us how a Linear Regression deal with these kind of problems : if we assume  that
+				</div>
+				</div>
+
+				<div class="row animate-box row-pb-md">
+					<p> For what comes after, we do need a kernel, but...</p>
+						<button class="collapsible">What is a kernel ? </button>
+						<div class="content">
+							<div class="container-perso">
+		  						<div class="image-perso">
+		   							<img src="images/gaussian_process/linear_regression.png" alt="about"> 
+		  						</div>
+		  						<div class="text-perso">
+		   							<p>We’ll consider the case of the Regression, we are therefore looking to find a relation behind some input X and the output Y. Let’s remind us how a Linear Regression deal with these kind of problems : if we assume  that
+								<img src="https://latex.codecogs.com/gif.latex?y=f(x)&plus;\varepsilon" title="y=f(x)+\varepsilon" /></a>
+									here epsilon is the noise, we try to find the best theta  et theta such that : 
+									<img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{120}&space;\fn_cm&space;\large&space;f(x)&space;=&space;\Theta_0&space;&plus;&space;\Theta_1X" title="\large f(x) = \Theta_0 + \Theta_1X" /></a></p>
+									<p>We’ll consider the case of the Regression, we are therefore looking to find a relation behind some input X and the output Y. Let’s remind us how a Linear Regression deal with these kind of problems : if we assume  that
+		 						 </div>
+							</div>
+														<p>We’ll consider the case of the Regression, we are therefore looking to find a relation behind some input X and the output Y. Let’s remind us how a Linear Regression deal with these kind of problems : if we assume  that
+									<p>We’ll consider the case of the Regression, we are therefore looking to find a relation behind some input X and the output Y. Let’s remind us how a Linear Regression deal with these kind of problems : if we assume  that
+				</div>
+				</div>
+
+				<div class="row animate-box row-pb-md">
+					<p> Once we have trained our network, we can use it...</p>
+						<button class="collapsible"> How can we do prediction ? </button>
+						<div class="content">
+							<div class="container-perso">
+		  						<div class="image-perso">
+		   							<img src="images/gaussian_process/linear_regression.png" alt="about"> 
+		  						</div>
+		  						<div class="text-perso">
+		   							<p>We’ll consider the case of the Regression, we are therefore looking to find a relation behind some input X and the output Y. Let’s remind us how a Linear Regression deal with these kind of problems : if we assume  that
+								<img src="https://latex.codecogs.com/gif.latex?y=f(x)&plus;\varepsilon" title="y=f(x)+\varepsilon" /></a>
+									here epsilon is the noise, we try to find the best theta  et theta such that : 
+									<img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{120}&space;\fn_cm&space;\large&space;f(x)&space;=&space;\Theta_0&space;&plus;&space;\Theta_1X" title="\large f(x) = \Theta_0 + \Theta_1X" /></a></p>
+									<p>We’ll consider the case of the Regression, we are therefore looking to find a relation behind some input X and the output Y. Let’s remind us how a Linear Regression deal with these kind of problems : if we assume  that
+		 						 </div>
+							</div>
+														<p>We’ll consider the case of the Regression, we are therefore looking to find a relation behind some input X and the output Y. Let’s remind us how a Linear Regression deal with these kind of problems : if we assume  that
+									<p>We’ll consider the case of the Regression, we are therefore looking to find a relation behind some input X and the output Y. Let’s remind us how a Linear Regression deal with these kind of problems : if we assume  that
+				</div>
+				</div>
+
+				<div class="row animate-box row-pb-md">
+					<p> For what comes after, we do need a kernel, but...</p>
+						<button class="collapsible">What is a kernel ? </button>
+						<div class="content">
+							<div class="container-perso">
+		  						<div class="image-perso">
+		   							<img src="images/gaussian_process/linear_regression.png" alt="about"> 
+		  						</div>
+		  						<div class="text-perso">
+		   							<p>We’ll consider the case of the Regression, we are therefore looking to find a relation behind some input X and the output Y. Let’s remind us how a Linear Regression deal with these kind of problems : if we assume  that
+								<img src="https://latex.codecogs.com/gif.latex?y=f(x)&plus;\varepsilon" title="y=f(x)+\varepsilon" /></a>
+									here epsilon is the noise, we try to find the best theta  et theta such that : 
+									<img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{120}&space;\fn_cm&space;\large&space;f(x)&space;=&space;\Theta_0&space;&plus;&space;\Theta_1X" title="\large f(x) = \Theta_0 + \Theta_1X" /></a></p>
+									<p>We’ll consider the case of the Regression, we are therefore looking to find a relation behind some input X and the output Y. Let’s remind us how a Linear Regression deal with these kind of problems : if we assume  that
+		 						 </div>
+							</div>
+														<p>We’ll consider the case of the Regression, we are therefore looking to find a relation behind some input X and the output Y. Let’s remind us how a Linear Regression deal with these kind of problems : if we assume  that
+									<p>We’ll consider the case of the Regression, we are therefore looking to find a relation behind some input X and the output Y. Let’s remind us how a Linear Regression deal with these kind of problems : if we assume  that
+				</div>
+				</div>
+
+
+
+
+
+
+
+
+
+
+				
+				
+				<div class="row animate-box row-pb-md">
+					<div class="container-perso">
+						<div class="text-perso">
+   							<p>We’ll consider the case of the Regression, we are therefore looking to find a relation behind some input X and the output Y. Let’s remind us how a Linear Regression deal with these kind of problems : if we assume  that
+						<img src="https://latex.codecogs.com/gif.latex?y=f(x)&plus;\varepsilon" title="y=f(x)+\varepsilon" /></a>
+							here epsilon is the noise, we try to find the best theta  et theta such that : 
+							<img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{120}&space;\fn_cm&space;\large&space;f(x)&space;=&space;\Theta_0&space;&plus;&space;\Theta_1X" title="\large f(x) = \Theta_0 + \Theta_1X" /></a></p>
+ 						 </div>
+ 						 
+  						<div class="image-perso">
+   							<img src="images/gaussian_process/linear_regression.png" alt="about"> 
+  						</div>
+  						
 					</div>
 
-					
-				</div>
-			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quo est quis mollitia ratione magni assumenda repellat atque modi temporibus tempore ex. Dolore facilis ex sunt ea praesentium expedita numquam?</p>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quo est quis mollitia ratione magni assumenda repellat atque modi temporibus tempore ex. Dolore facilis ex sunt ea praesentium expedita numquam?</p>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quo est quis mollitia ratione magni assumenda repellat atque modi temporibus tempore ex. Dolore facilis ex sunt ea praesentium expedita numquam?</p>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quo est quis mollitia ratione magni assumenda repellat atque modi temporibus tempore ex. Dolore facilis ex sunt ea praesentium expedita numquam?</p>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quo est quis mollitia ratione magni assumenda repellat atque modi temporibus tempore ex. Dolore facilis ex sunt ea praesentium expedita numquam?</p>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quo est quis mollitia ratione magni assumenda repellat atque modi temporibus tempore ex. Dolore facilis ex sunt ea praesentium expedita numquam?</p>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quo est quis mollitia ratione magni assumenda repellat atque modi temporibus tempore ex. Dolore facilis ex sunt ea praesentium expedita numquam?</p>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quo est quis mollitia ratione magni assumenda repellat atque modi temporibus tempore ex. Dolore facilis ex sunt ea praesentium expedita numquam?</p>
+
+					<div class="row animate-box row-pb-md">
+					<p>This is very useful but it is not elaborate enough to fit more complex dataset like this one (green line). A solution is to increase the number of possible transformers by adding more parameters y=θ0+θ1x+θ2x2, we get here a polynomial regression. (red curve). </p>
+
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quo est quis mollitia ratione magni assumenda repellat atque modi temporibus tempore ex. Dolore facilis ex sunt ea praesentium expedita numquam?</p>
+
+					<img src="images/gaussian_process/linear_regression.png" alt="about" style="  display: flex ;margin-left: auto;margin-right: auto; width: 60%;"> 
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quo est quis mollitia ratione magni assumenda repellat atque modi temporibus tempore ex. Dolore facilis ex sunt ea praesentium expedita numquam?</p>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quo est quis mollitia ratione magni assumenda repellat atque modi temporibus tempore ex. Dolore facilis ex sunt ea praesentium expedita numquam?</p>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quo est quis mollitia ratione magni assumenda repellat atque modi temporibus tempore ex. Dolore facilis ex sunt ea praesentium expedita numquam?</p>
+					</div>
+
+		</div>
 			
 		</div>
 	</div>
@@ -86,48 +294,16 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-4 col-sm-4 animate-box" data-animate-effect="fadeIn">
-					<div class="fh5co-staff">
-						<img src="images/person1.jpg" alt="Free HTML5 Templates by gettemplates.co">
-						<h3>Jean Smith</h3>
-						<strong class="role">Web Designer</strong>
-						<p>Quos quia provident consequuntur culpa facere ratione maxime commodi voluptates id repellat velit eaque aspernatur expedita. Possimus itaque adipisci.</p>
-						<ul class="fh5co-social-icons">
-							<li><a href="#"><i class="icon-facebook"></i></a></li>
-							<li><a href="#"><i class="icon-twitter"></i></a></li>
-							<li><a href="#"><i class="icon-dribbble"></i></a></li>
-							<li><a href="#"><i class="icon-github"></i></a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-md-4 col-sm-4 animate-box" data-animate-effect="fadeIn">
-					<div class="fh5co-staff">
-						<img src="images/person2.jpg" alt="Free HTML5 Templates by gettemplates.co">
-						<h3>Hush Raven</h3>
-						<strong class="role">Front-end Developer</strong>
-						<p>Quos quia provident consequuntur culpa facere ratione maxime commodi voluptates id repellat velit eaque aspernatur expedita. Possimus itaque adipisci.</p>
-						<ul class="fh5co-social-icons">
-							<li><a href="#"><i class="icon-facebook"></i></a></li>
-							<li><a href="#"><i class="icon-twitter"></i></a></li>
-							<li><a href="#"><i class="icon-dribbble"></i></a></li>
-							<li><a href="#"><i class="icon-github"></i></a></li>
-						</ul>
-					</div>
-				</div>
+
 				<div class="col-md-4 col-sm-4 animate-box" data-animate-effect="fadeIn">
 					<div class="fh5co-staff">
 						<img src="images/person3.jpg" alt="Free HTML5 Templates by gettemplates.co">
 						<h3>Alex King</h3>
 						<strong class="role">Back-end Developer</strong>
 						<p>Quos quia provident consequuntur culpa facere ratione maxime commodi voluptates id repellat velit eaque aspernatur expedita. Possimus itaque adipisci.</p>
-						<ul class="fh5co-social-icons">
-							<li><a href="#"><i class="icon-facebook"></i></a></li>
-							<li><a href="#"><i class="icon-twitter"></i></a></li>
-							<li><a href="#"><i class="icon-dribbble"></i></a></li>
-							<li><a href="#"><i class="icon-github"></i></a></li>
-						</ul>
 					</div>
 				</div>
+				JQSIOCjIOQCJO
 			</div>
 		</div>
 	</div>
@@ -136,7 +312,21 @@
 
 	<div id="fh5co-testimonial" class="fh5co-bg-section">
 		<div class="container">
+
 			<div class="row animate-box row-pb-md">
+					hfdhjhdjfhdjj
+					hfdhjhdjfhdjj
+										<div class="container-perso">
+	  						<div class="image-perso">
+	   							<img src="images/gaussian_process/linear_regression.png" alt="about"> 
+	  						</div>
+	  						<div class="text-perso">
+	   							<p>We’ll consider the case of the Regression, we are therefore looking to find a relation behind some input X and the output Y. Let’s remind us how a Linear Regression deal with these kind of problems : if we assume  that
+							<img src="https://latex.codecogs.com/gif.latex?y=f(x)&plus;\varepsilon" title="y=f(x)+\varepsilon" /></a>
+								here epsilon is the noise, we try to find the best theta  et theta such that : 
+								<img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{120}&space;\fn_cm&space;\large&space;f(x)&space;=&space;\Theta_0&space;&plus;&space;\Theta_1X" title="\large f(x) = \Theta_0 + \Theta_1X" /></a></p>
+	 						 </div>
+					</div>
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
 					<span>You deserved happiness</span>
 					<h2>Happy Clients</h2>
@@ -297,7 +487,22 @@ s.setAttribute('data-timestamp', +new Date());
 	<script src="js/magnific-popup-options.js"></script>
 	<!-- Main -->
 	<script src="js/main.js"></script>
+	<script>
+		var coll = document.getElementsByClassName("collapsible");
+		var i;
 
+		for (i = 0; i < coll.length; i++) {
+		  coll[i].addEventListener("click", function() {
+		    this.classList.toggle("active");
+		    var content = this.nextElementSibling;
+		    if (content.style.display === "block") {
+		      content.style.display = "none";
+		    } else {
+		      content.style.display = "block";
+		    }
+		  });
+		}
+	</script>
 	</body>
 
 
