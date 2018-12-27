@@ -32,14 +32,17 @@ body {
   vertical-align:top;/* here */
   width: 100%;
   height: 100%;
-  margin: 5px;
-  min-height: 200px;
+  margin: 10px;
+  min-height: 80px;
   min-width: 300px;
+  max-height: 300px;
 }
+
 .container-perso > .text-perso {
   flex: 2 0 0%;
   text-align: justify;
   text-justify: inter-word;
+  margin: 5px;
   
   margin:auto 0;
 }
@@ -70,7 +73,7 @@ body {
 
 /* Style the button that is used to open and close the collapsible content */
 .collapsible {
-  font-weight: 550;
+  font-weight: 30px;
   background-color: white;
   text-align: center;
   color: #444;
@@ -79,7 +82,7 @@ body {
   border: none;
   text-align: center;
   outline: none;
-  font-size: 17px;
+  font-size: 19px;
   width: 97%;
   margin: auto;
   display: block;
@@ -130,7 +133,9 @@ a:hover, a:active, a:focus {
 
 
 p {
-  margin-bottom: 20px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+
 }
 
 h1, h2, h3, h4, h5, h6, figure {
